@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddAppoitment from "./AddAppoitment"
+import ToggleAppointment from "./ToggleAppointment"
 import List from "./List"
 import Search from "./Search"
 import NavMenu from "./Navbar"
@@ -9,7 +10,8 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             data:[]
+             data:[],
+             toggle:false
         }
     }
     componentDidMount(){
@@ -33,16 +35,22 @@ export default class App extends Component {
         this.setState({data:newData})
         // console.log(findIndex)
     }
+    toggleAppointment=()=>{
+        console.log("toggled")
+        this.setState({toggle:!this.state.toggle})
+    }
     render() {
         console.log(this.state.data,"<>")
         return (
             <div className="app">
                 <NavMenu/>
-                <AddAppoitment/>
-                <Search/>
-                <List removeItem={this.removeItem} appointments={this.state.data}/>
+                <ToggleAppointment toggleAppointment={this.toggleAppointment}/>
+                {
+                    this.state.toggle ? <AddAppoitment/> : <List removeItem={this.removeItem} appointments={this.state.data}/>
+                }               
                 <span>{"<"}</span>            
                 <span>{">"}</span>            
+                {/* <Search/>S */}
                 
             </div>
         )
