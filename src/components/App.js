@@ -41,11 +41,12 @@ export default class App extends Component {
         this.setState({toggle:!this.state.toggle})
     }
     search=(searching)=>{
-        console.log("<><Sear",searching.target.value)
+        // console.log("<><Sear",searching.target.value)
         this.setState({search:searching.target.value})
     }
     render() {
         // console.log(this.state.data,"<>")
+        const filtered= this.state.data.filter(i=>i["petName"].toLowerCase().includes(this.state.search.toLowerCase()))
         return (
             <div className="app">
                 <NavMenu/>
@@ -54,7 +55,7 @@ export default class App extends Component {
                     this.state.toggle ? <AddAppoitment/> : 
                     <>
                     <Search search={this.search} value={this.state.search}/>
-                    <List removeItem={this.removeItem} appointments={this.state.data}/>
+                    <List  removeItem={this.removeItem} appointments={filtered}/>
                     </>
                 }               
                 <span>{"<"}</span>            
