@@ -22,15 +22,15 @@ export default class NavMenu extends Component {
         return (
             <div >
               <Navbar  color="primary" light>
-                <NavbarBrand  href="/" className="mr-auto">reactstrap</NavbarBrand>
+                <NavbarBrand  href="/" className="mr-auto" style={{color:"white"}}>Your Pet Doctor</NavbarBrand>
                 <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                 <Collapse isOpen={!this.state.collapsed} navbar>
                   <Nav  navbar>
                     <NavItem >
-                      <NavLink className="drop" href="#">Register</NavLink>
+                      <NavLink className="drop" href="#" style={{color:"white"}}>Register</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink className="drop" href="#">More...</NavLink>
+                      <NavLink className="drop" href="#" style={{color:"white"}}>More...</NavLink>
                     </NavItem>
                   </Nav>
                 </Collapse>
