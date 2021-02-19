@@ -1,0 +1,83 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  border:1px solid red;
+}
+.App{
+  display: flex;
+  width: 80%;
+  /* border: 1px solid red; */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+.celebs{
+  margin:5px;
+  /* border: 1px solid blue; */
+  height:340px;
+  width:200px;
+  box-shadow: 0 0 10px lightblue;
+}
+input{
+  width: 90%;
+  height: 40px;
+  border: none;
+  box-shadow: 0 0 5px rgb(21, 40, 46);
+  outline: none;
+  border-radius: 5px;
+  padding: 0 0 0 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  
+}
+#input{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 3px auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* text-align: center; */
+}
+img{
+  width: 80%;
+}
+@media only screen and (min-width: 1300px) {
+  .App{
+    width: 60%;
+  }
+}
+
+.single{
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  
+}
+.name{
+  margin-left: 5%;
+  font-weight: bold;
+}
+.details{
+  /* border:1px solid red; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-left:5%;
+}
+
+.history{
+  display: flex;
+}
+.internal-img{
+  width: 60px;
+}
+
+.image{
+  width: 100px;
+  margin-left:30px;
+}

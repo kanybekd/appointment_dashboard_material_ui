@@ -1,0 +1,51 @@
+.app{
+    width: 30%;
+    /* border: 1px solid red; */
+    font-size: 1rem;
+    margin: 0 auto;
+    /* box-shadow: 0 0 2px black; */
+}
+
+@media only screen and (max-width: 450px) {
+    .app{
+        width: 100%;
+
+    }
+    
+  }
+.appointments{
+    display:flex;
+    flex-direction: column;
+    
+    /* border: 2px solid green; */
+
+}
+.single-appointment{
+    /* border:1px solid blue; */
+    display: flex;
+    box-shadow: 0 0 10px lightgrey;
+    margin:5px 0;
+
+}
+.single-appointment:hover{
+    background-color: rgb(228, 210, 210);
+}
+.pet-info{
+    display: flex;
+    /* border:1px solid red; */
+    flex-direction: column;
+    width: 60%;
+}
+.close-app{
+    width: 15%;
+    text-align: center;
+    /* margin:auto 0; */
+}
+.date{
+    margin-left: 40px;
+    font-style: italic;
+}
+.date-content{
+    /* border: 1px solid blue; */
+    margin: 0 auto;
+}
