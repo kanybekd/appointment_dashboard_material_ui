@@ -6,7 +6,7 @@ class AddAppoitment extends Component{
 
 render(){
   return (
-    <Form id="form">
+    <Form className="form">
       <FormGroup>
         <Label for="exampleEmail">Email</Label>
         <Input type="email" name="email" id="exampleEmail" placeholder="type email..." />

@@ -11,7 +11,8 @@ export default class App extends Component {
         super(props)
         this.state = {
              data:[],
-             toggle:false
+             toggle:false,
+             search:""
         }
     }
     componentDidMount(){
@@ -36,21 +37,29 @@ export default class App extends Component {
         // console.log(findIndex)
     }
     toggleAppointment=()=>{
-        console.log("toggled")
+        // console.log("toggled")
         this.setState({toggle:!this.state.toggle})
     }
+    search=(searching)=>{
+        console.log("<><Sear",searching.target.value)
+        this.setState({search:searching.target.value})
+    }
     render() {
-        console.log(this.state.data,"<>")
+        // console.log(this.state.data,"<>")
         return (
             <div className="app">
                 <NavMenu/>
                 <ToggleAppointment toggleAppointment={this.toggleAppointment}/>
                 {
-                    this.state.toggle ? <AddAppoitment/> : <List removeItem={this.removeItem} appointments={this.state.data}/>
+                    this.state.toggle ? <AddAppoitment/> : 
+                    <>
+                    <Search search={this.search} value={this.state.search}/>
+                    <List removeItem={this.removeItem} appointments={this.state.data}/>
+                    </>
                 }               
                 <span>{"<"}</span>            
                 <span>{">"}</span>            
-                {/* <Search/>S */}
+                
                 
             </div>
         )

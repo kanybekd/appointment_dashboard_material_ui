@@ -19,7 +19,7 @@
     
     /* border: 2px solid green; */
     /* padding:15px; */
-    width: 90%;
+    width: 95%;
     margin:0 auto;
 
 }
@@ -56,18 +56,20 @@
 }
 .toggleApp{
     background:#007BFF;
-    width: 90%;
+    width: 95%;
     display: flex;
     margin:5px auto;
     padding: 10px;
     color:white;
     cursor: pointer;
+    box-shadow: 0 0 10px lightgrey;
 }
 .toggleApp:hover{
     opacity: 0.7;
 }
-#form{
+.form{
     /* border:1px solid green; */
-    width: 90%;
+    width: 95%;
     margin:0 auto;
+    box-shadow: 0 0 10px lightgrey;
 }
