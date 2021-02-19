@@ -21,7 +21,7 @@ export default class List extends Component {
                                     <Moment
                                      date = {i.aptDate}
                                      parse = "YYYY-MM-dd hh:mm"
-                                     format = "YYYY-MMM-D hh:mm"
+                                     format = "YYYY-MMM-D h:mm a"
                                     /></span> </span>
                                     <span style={{fontWeight:"bolder"}}>owner:{i.ownerName}</span>
                                     <span>{i.aptNotes}</span>

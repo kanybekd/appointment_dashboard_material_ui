@@ -8,16 +8,24 @@ render(){
   return (
     <Form className="form">
       <FormGroup>
-        <Label for="exampleEmail">Email</Label>
-        <Input type="email" name="email" id="exampleEmail" placeholder="type email..." />
+        <Label for="exampleEmail">Pet name</Label>
+        <Input type="name" value={this.props.name} onChange={this.props.newAppointment} name="name" id="exampleEmail" placeholder="type name..." />
       </FormGroup>
       <FormGroup>
-        <Label for="examplePassword">Password</Label>
-        <Input type="password" name="password" id="examplePassword" placeholder="enter pass code..." />
+        <Label for="examplePassword">Owner</Label>
+        <Input type="name" value={this.props.owner} onChange={this.props.newAppointment} name="owner" id="examplePassword" placeholder="type owner..." />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleText">Text Area</Label>
-        <Input type="textarea" name="text" id="exampleText" />
+        <Label for="examplePassword">Date</Label>
+        <Input type="name" value={this.props.date} onChange={this.props.newAppointment} name="date" id="examplePassword" placeholder="YYYY-MM-dd" />
+      </FormGroup>
+      <FormGroup>
+        <Label for="examplePassword">Time</Label>
+        <Input type="name" value={this.props.time} onChange={this.props.newAppointment} name="time" id="examplePassword" placeholder="--:-- --" />
+      </FormGroup>
+      <FormGroup>
+        <Label for="exampleText">Add note</Label>
+        <Input type="textarea" value={this.props.notes} onChange={this.props.newAppointment} name="notes" id="exampleText" />
       </FormGroup>
       
       <FormGroup check>
@@ -26,7 +34,7 @@ render(){
           Check me out
         </Label>
       </FormGroup>
-      <Button>Submit</Button>
+      <Button onClick={this.props.submitNewApp}>Submit</Button>
     </Form>
   );
 }

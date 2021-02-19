@@ -11,7 +11,7 @@ export default class ToggleAppointment extends Component {
     
     render() {
         return (
-            <div class="toggleApp" onClick={this.props.toggleAppointment} >
+            <div className="toggleApp" onClick={this.props.toggleAppointment} >
                 <div>+</div>
                 <div>Add Appointment</div>
             </div>
