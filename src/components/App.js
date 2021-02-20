@@ -63,17 +63,24 @@ export default class App extends Component {
     submitNewApp=()=>{
         const newObj = {}
         const newData =[...this.state.data]
-        if(!this.state.name || !this.state.owner || !this.state.date || !this.state.time ){
+        const exists = newData.filter(i=>i.ownerName===this.state.owner)
+        console.log("<><><>",exists)
+        if(!this.state.name || !this.state.owner || !this.state.date || !this.state.time  ){
             alert("enter fields..")
-        }else{
+            return;
+        }
+        // console.log("obj",newObj)
+        else if(exists.length===0){
             newObj["petName"]=this.state.name
             newObj["ownerName"]=this.state.owner
             newObj["aptDate"]= `${this.state.date} ${this.state.time}`                       //"2015-06-20 15:30",
             newObj["aptNotes"]=this.state.notes
             newObj["id"]=nanoid()
             newData.unshift(newObj)
-            // console.log(newObj)
             this.setState({data:newData,toggle:!this.state.toggle,name:"",owner:"",date:"",time:"",notes:""})
+        }
+        else{
+            alert("u have already booked!")
         }
     }
     render() {
