@@ -81,7 +81,7 @@ export default class App extends Component {
             newObj["aptNotes"]=this.state.notes
             newObj["id"]=nanoid()
             newData.unshift(newObj)
-            this.setState({data:newData,toggle:!this.state.toggle,name:"",owner:"",date:"",time:"",notes:""})
+            this.setState({data:newData,toggle:!this.state.toggle,name:"",owner:"",date:"",time:"",notes:"",currentPage:0})
         }
         else{
             alert("u have already booked!")
@@ -108,7 +108,7 @@ export default class App extends Component {
                 {
                     this.state.toggle ? <AddAppoitment submitNewApp={this.submitNewApp} newAppointment={this.newAppointment} name={this.state.name} owner={this.state.owner} date={this.state.date} time={this.state.time} /> : 
                     <>
-                    <Search search={this.search} value={this.state.search}/>
+                    {!currentPage ? <Search search={this.search} value={this.state.search}/> : ""}
                     <List  removeItem={this.removeItem} appointments={paging}/>
                     </>
                 }    
