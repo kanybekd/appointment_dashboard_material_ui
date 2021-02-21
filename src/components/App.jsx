@@ -112,10 +112,10 @@ export default class App extends Component {
                     <List  removeItem={this.removeItem} appointments={paging}/>
                     </>
                 }    
-                <div className="buttons">
+                {this.state.toggle ? "" : <div className="buttons">
                     <Button disabled = {prevDisabled} color="primary" onClick={this.prev}>prev</Button>
                     <Button disabled={nextDisabled} color="primary" onClick={this.next}>next</Button>
-                </div>                  
+                </div>}                  
                 
             </div>
         )

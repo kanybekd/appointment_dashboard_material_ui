@@ -27,8 +27,10 @@ render(){
         <Label for="exampleText">Add note</Label>
         <Input type="textarea" value={this.props.notes} onChange={this.props.newAppointment} name="notes" id="exampleText" />
       </FormGroup>
-        <span style={{color:"red",marginRight:"40px"}}>* required fields</span>
-      <Button style={{position:"absolute",right:"10px" ,width:"40%"}} onClick={this.props.submitNewApp} color="primary">Submit</Button>
+      <div id="bottom">
+        <span style={{color:"red"}}>* required fields</span>
+        <Button style={{width:"20%"}} onClick={this.props.submitNewApp} color="primary">Submit</Button>
+      </div>
     </Form>
   );
 }
