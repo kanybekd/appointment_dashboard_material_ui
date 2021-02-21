@@ -1,10 +1,15 @@
+body{
+    background-color: rgb(216, 246, 231);
+}
 .app{
     width: 30%;
     /* border: 1px solid red; */
     background-color: lightblue;
     font-size: 1rem;
     margin: 0 auto;
+    padding-bottom: 5px;
     /* box-shadow: 0 0 2px black; */
+    /* height: 100%; */
 }
 
 @media only screen and (max-width: 450px) {
@@ -25,17 +30,22 @@
 
 }
 .single-appointment{
+    border-radius: 5px;
     background-color: white;
     /* border:1px solid blue; */
     display: flex;
     box-shadow: 0 0 10px lightgrey;
     margin:5px 0;
-    padding-top: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
 
 }
 .single-appointment:hover{
-    background-color: rgb(228, 210, 210);
+    opacity: 0.7;
+
+    /* width: 100%; */
+    /* background-color: rgb(222, 232, 233); */
 }
 .pet-info{
     display: flex;
@@ -80,4 +90,12 @@
     width: 95%;
     margin:5px  auto;
     box-shadow: 0 0 10px lightgrey;
+}
+
+.buttons{
+    margin: 10px 0;
+    /* border:1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding:0 10px 0 10px;
 }

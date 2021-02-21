@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Button} from "reactstrap"
 import AddAppoitment from "./AddAppoitment"
 import ToggleAppointment from "./ToggleAppointment"
 import List from "./List"
@@ -17,14 +18,16 @@ export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-             data:[],
-             toggle:false,
-             search:"",
-             date:'',
-             owner:'',
-             name:'',
-             time:'',
-             notes:''
+            currentPage:0,
+            data:[],
+            searchedData:[],
+            toggle:false,
+            search:"",
+            date:'',
+            owner:'',
+            name:'',
+            time:'',
+            notes:''
         }
     }
     componentDidMount(){
@@ -54,6 +57,7 @@ export default class App extends Component {
     }
     search=(searching)=>{
         // console.log("<><Sear",searching.target.value)
+
         this.setState({search:searching.target.value})
     }
     newAppointment=(e)=>{
@@ -71,8 +75,8 @@ export default class App extends Component {
         }
         // console.log("obj",newObj)
         else if(exists.length===0){
-            newObj["petName"]=this.state.name
-            newObj["ownerName"]=this.state.owner
+            newObj["petName"]=this.state.name.slice(0,1).toUpperCase()+this.state.name.slice(1)
+            newObj["ownerName"]=this.state.owner.slice(0,1).toUpperCase()+this.state.owner.slice(1)
             newObj["aptDate"]= `${this.state.date} ${this.state.time}`                       //"2015-06-20 15:30",
             newObj["aptNotes"]=this.state.notes
             newObj["id"]=nanoid()
@@ -83,9 +87,20 @@ export default class App extends Component {
             alert("u have already booked!")
         }
     }
+    next=()=>{
+        this.setState({currentPage:this.state.currentPage+1})
+    }
+    prev=()=>{
+        this.setState({currentPage:this.state.currentPage-1})
+    }
     render() {
-        // console.log(this.state.data,"<>")
-        const filtered= this.state.data.filter(i=>i["petName"].toLowerCase().includes(this.state.search.toLowerCase()))
+        console.log(this.state.currentPage,"<>")
+        const {currentPage,data} = this.state
+        const filtered = data.filter(i=>i["petName"].toLowerCase().includes(this.state.search.toLowerCase()))
+        const paging = filtered.slice(currentPage*4,currentPage*4+4)
+        const prevDisabled = currentPage===0 ? "false" : ""
+        const nextDisabled = currentPage*4+4<data.length ? "" : "false"
+        // console.log("dis or not",disabledOrNot)
         return (
             <div className="app">
                 <NavMenu/>
@@ -94,12 +109,13 @@ export default class App extends Component {
                     this.state.toggle ? <AddAppoitment submitNewApp={this.submitNewApp} newAppointment={this.newAppointment} name={this.state.name} owner={this.state.owner} date={this.state.date} time={this.state.time} /> : 
                     <>
                     <Search search={this.search} value={this.state.search}/>
-                    <List  removeItem={this.removeItem} appointments={filtered}/>
+                    <List  removeItem={this.removeItem} appointments={paging}/>
                     </>
-                }               
-                <span>{"<"}</span>            
-                <span>{">"}</span>            
-                
+                }    
+                <div className="buttons">
+                    <Button disabled = {prevDisabled} color="primary" onClick={this.prev}>prev</Button>
+                    <Button disabled={nextDisabled} color="primary" onClick={this.next}>next</Button>
+                </div>                  
                 
             </div>
         )
