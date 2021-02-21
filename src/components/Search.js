@@ -14,7 +14,7 @@ export default class Search extends Component {
             <Form className="form">
                 <FormGroup>
               {/* <Label for="exampleEmail">Email</Label> */}
-              <Input type="email" onChange={this.props.search} value={this.props.value} name="email" id="exampleEmail" placeholder="search..." />
+              <Input type="email" onChange={this.props.search} value={this.props.value} name="email" id="exampleEmail" placeholder="search by name..." />
              </FormGroup>
             </Form>
         )
