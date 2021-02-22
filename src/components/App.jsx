@@ -99,7 +99,7 @@ export default class App extends Component {
         const filtered = data.filter(i=>i["petName"].toLowerCase().includes(this.state.search.toLowerCase()))
         const paging = filtered.slice(currentPage*4,currentPage*4+4)
         const prevDisabled = currentPage===0 ? "false" : ""
-        const nextDisabled = currentPage*4+4<data.length ? "" : "false"
+        const nextDisabled = currentPage*4+4<filtered.length ? "" : "false"
         // console.log("dis or not",disabledOrNot)
         return (
             <div className="app">
